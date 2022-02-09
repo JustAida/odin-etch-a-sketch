@@ -22,7 +22,12 @@ body {
   height: 44px;
 }
 
-#reset {
+#reset,
+#new {
   margin: 20px;
   padding: 10px;
+}
+
+#button {
+  display: flex;
 }
