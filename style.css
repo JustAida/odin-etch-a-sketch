@@ -6,21 +6,20 @@ body {
 }
 
 #container {
-  border: black solid;
+  border: black solid 6px;
   display: flex;
-  height: 680px;
-  width: 680px;
+  width: 800px;
   flex-wrap: wrap;
+  flex: 1;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  gap: 5px;
 }
 
 .grid {
-  border: red solid;
-  width: 31.25px;
-  height: 31.25px;
+  border: rgb(247, 245, 245) solid;
+  width: 44px;
+  height: 44px;
 }
 
 #reset {
