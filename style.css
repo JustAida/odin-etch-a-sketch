@@ -31,3 +31,8 @@ body {
 #button {
   display: flex;
 }
+
+select {
+  padding: 10px;
+  margin: 20px;
+}
