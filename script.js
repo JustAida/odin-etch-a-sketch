@@ -39,15 +39,32 @@ function randomBackgroundColor() {
   }
 }
 
+function checkMode() {
+  const mode = document.querySelector('#mode');
+  if (mode.value === 'normal') {
+    return 'normal';
+  } else {
+    return 'random';
+  }
+}
+
 // Function to detect when mouse is hovering over the grid.
 let colorChangeTimes = 0;
 let rbg;
 function detectMouseHovering() {
   const grids = document.querySelectorAll('.grid');
+  const currentMode = checkMode();
 
   // Add event listener to each grid.
   grids.forEach(grid => {
-    grid.addEventListener('mouseenter', randomBackgroundColor);
+    // Check the mode then add the new event listener and remove the previous one.
+    if (currentMode === 'normal') {
+      grid.addEventListener('mouseenter', e => e.target.style.backgroundColor = 'black');
+      grid.removeEventListener('mouseenter', randomBackgroundColor);
+    } else {
+      grid.addEventListener('mouseenter', randomBackgroundColor);
+      grid.removeEventListener('mouseenter', e => e.target.style.backgroundColor = 'black');
+    }
   });
 }
 
@@ -77,3 +94,6 @@ newButton.addEventListener('click', () => {
   createGrids(numSquares);
   detectMouseHovering();
 });
+
+const mode = document.querySelector('#mode');
+mode.addEventListener('change', detectMouseHovering);
